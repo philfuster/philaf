@@ -1,0 +1,69 @@
+{
+  "name": "@philaf/eslint-config",
+  "description": "Eslint configurations",
+  "private": true,
+  "sideEffects": false,
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./globs": "./globs.js",
+    "./globs.js": "./globs.js",
+    "./nodejs": "./nodejs.js",
+    "./nodejs.js": "./nodejs.js",
+    "./react": "./react.js",
+    "./react.js": "./react.js"
+  },
+  "scripts": {
+    "style:fix": "concurrently --max-processes 1 pnpm:lint:fix pnpm:prettier:fix",
+    "coverage": "jest --maxWorkers=${JEST_WORKERS:-50%} --workerIdleMemoryLimit=${JEST_IDLE_MEMORY:-1G} --ci --reporters=default --reporters=jest-junit --collectCoverage --coverageReporters text-summary",
+    "coverage:text": "jest --maxWorkers=${JEST_WORKERS:-50%} --workerIdleMemoryLimit=${JEST_IDLE_MEMORY:-1G} --collectCoverage --coverageReporters text",
+    "coverage:html": "jest --maxWorkers=${JEST_WORKERS:-50%} --workerIdleMemoryLimit=${JEST_IDLE_MEMORY:-1G} --collectCoverage --coverageReporters html",
+    "lint": "TIMING=1 eslint . --ext cjs,mjs,js,jsx,ts,tsx",
+    "lint:fix": "TIMING=1 eslint . --ext cjs,mjs,js,jsx,ts,tsx --fix",
+    "lint-cycle": "dpdm --transform --no-progress --no-tree --no-warning --exit-code circular:1 \"**/*\"",
+    "prettier": "prettier . --ignore-unknown --check",
+    "prettier:fix": "prettier . --ignore-unknown --write",
+    "unit": "jest --maxWorkers=${JEST_WORKERS:-50%} --workerIdleMemoryLimit=${JEST_IDLE_MEMORY:-1G}",
+    "typecheck": "tsc --noEmit && echo \"tsc: no typecheck errors\""
+  },
+  "devDependencies": {
+    "@philaf/tsconfig": "workspace:*"
+  },
+  "peerDependencies": {
+    "@graphql-eslint/eslint-plugin": "^3.16.0",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "@typescript-eslint/parser": "^5.18.0",
+    "eslint": "^8.12.0",
+    "eslint-config-airbnb": "^19.0.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-compat": "^4.1.0",
+    "eslint-plugin-import": "^2.25.0",
+    "eslint-plugin-jest": "^27.0.0",
+    "eslint-plugin-jsx-a11y": "^6.5.0",
+    "eslint-plugin-react": "^7.29.0",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "eslint-plugin-testing-library": "^5.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@graphql-eslint/eslint-plugin": {
+      "optional": true
+    },
+    "eslint-config-airbnb": {
+      "optional": true
+    },
+    "eslint-config-airbnb-base": {
+      "optional": true
+    },
+    "eslint-plugin-jsx-a11y": {
+      "optional": true
+    },
+    "eslint-plugin-react": {
+      "optional": true
+    },
+    "eslint-plugin-react-hooks": {
+      "optional": true
+    }
+  }
+}

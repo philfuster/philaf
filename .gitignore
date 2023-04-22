@@ -4,6 +4,10 @@ node_modules
 # build folder
 dist
 
+### individual files
+# eslint cache
+.eslintcache
+
 ### debug output
 debug.log
 npm-debug.log

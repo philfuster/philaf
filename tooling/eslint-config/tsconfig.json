@@ -1,0 +1,4 @@
+{
+  "extends": "@philaf/tsconfig/node18",
+  "include": ["./.*.cjs", "./*.js", "./.*.js"]
+}

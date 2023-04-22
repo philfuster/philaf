@@ -11,6 +11,10 @@
     {
       "name": "⚒️ @philaf/tsconfig",
       "path": "../tooling/tsconfig"
+    },
+    {
+      "name": "⚒️ @philaf/eslint-config",
+      "path": "../tooling/eslint-config"
     }
   ],
   "settings": {

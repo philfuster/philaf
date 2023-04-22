@@ -1,0 +1,104 @@
+{
+  "folders": [
+    {
+      "name": "✨ philaf",
+      "path": ".."
+    },
+    {
+      "name": "📖 blog",
+      "path": "../apps/app.blog"
+    },
+    {
+      "name": "⚒️ @philaf/tsconfig",
+      "path": "../tooling/tsconfig"
+    }
+  ],
+  "settings": {
+    "files.eol": "\n",
+    "javascript.format.enable": false,
+    "typescript.format.enable": false,
+    "typescript.tsdk": "✨ philaf\\node_modules\\typescript\\lib",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
+    "monorepoWorkspace.folders.regex.libs": "common|package|lib|private",
+    "monorepoWorkspace.folders.regex.apps": "app",
+    "monorepoWorkspace.folders.regex.tools": "tool|script|util",
+    "monorepoWorkspace.folders.prefix.tools": "🛠️ ",
+    "search.exclude": {
+      "**/.turbo": true,
+      "**/dist": true,
+      "**/coverage": true
+    }
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Jest Current File Coverage",
+        "cwd": "${fileWorkspaceFolder}",
+        "program": "node_modules/jest/bin/jest.js",
+        "runtimeArgs": ["--nolazy"],
+        "args": [
+          "${input:NormalizeFilePath}",
+          "--coverage",
+          "--collectCoverageFrom='${input:CoveragePathCheck}'",
+          "--coverageThreshold='{}'",
+          "--config",
+          "jest.config.js",
+          "--runInBand",
+          "--no-cache",
+          "--testTimeout=10000000"
+        ],
+        "sourceMaps": true,
+        "outputCapture": "std",
+        "console": "integratedTerminal",
+        "skipFiles": ["<node_internals>/**"]
+      }
+    ],
+    "inputs": [
+      {
+        "id": "NormalizeFilePath",
+        "type": "command",
+        "command": "extension.commandvariable.transform",
+        "args": {
+          "text": "${file}",
+          "find": "\\\\",
+          "replace": "/",
+          "flags": "g"
+        }
+      },
+      {
+        "id": "CoveragePathCheck",
+        "type": "command",
+        "command": "extension.commandvariable.transform",
+        "args": {
+          "remember": {
+            "strippedTest": {
+              "transform": {
+                "text": "${fileBasename}",
+                "find": "\\.(?:test|spec)",
+                "replace": ""
+              }
+            },
+            "parentFolder": {
+              "transform": {
+                "text": "${command:extension.commandvariable.file.relativeFileDirname1UpPosix}"
+              }
+            },
+            "currentFolder": {
+              "transform": {
+                "text": "${command:extension.commandvariable.file.relativeFileDirnamePosix}"
+              }
+            }
+          },
+          "text": "[\\\"${remember:parentFolder}/${remember:strippedTest}\\\", \\\"${remember:currentFolder}/${remember:strippedTest}\\\"]"
+        }
+      }
+    ]
+  }
+}

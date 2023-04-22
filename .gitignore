@@ -1,0 +1,17 @@
+### directories
+# installed modules
+node_modules
+# build folder
+dist
+
+### debug output
+debug.log
+npm-debug.log
+
+### turborepo
+.turbo
+# turborepo pruned folder
+out
+
+### swc
+.swc

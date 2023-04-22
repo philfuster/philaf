@@ -1,0 +1,11 @@
+{
+  "name": "@philaf/tsconfig",
+  "description": "Typescript configuration bases",
+  "private": true,
+  "sideEffects": false,
+  "peerDependencies": {
+    "ts-node": "^10.9.0",
+    "tsconfig-paths": "^4.1.0",
+    "typescript": "^5.2.0"
+  }
+}

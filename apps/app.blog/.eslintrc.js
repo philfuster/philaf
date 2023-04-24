@@ -3,8 +3,12 @@ module.exports = {
 	extends: ['@philaf/eslint-config/react'],
 	parser: '@typescript-eslint/parser',
 	parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-	plugins: ['react-refresh'],
-	rules: {
-		'react-refresh/only-export-components': 'warn',
+	plugins: [],
+	settings: {
+		'import/resolver': {
+			typescript: {
+				project: ['./tsconfig.json', './src/tsconfig.json'],
+			},
+		},
 	},
 };

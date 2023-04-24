@@ -8,6 +8,7 @@
       "#features/*": ["./features/*"],
       "#pages/*": ["./pages/*"]
     },
-    "types": ["react", "react-dom"]
-  }
+    "types": ["react", "react-dom", "node"]
+  },
+  "references": [{ "path": "../tsconfig.node.json" }]
 }

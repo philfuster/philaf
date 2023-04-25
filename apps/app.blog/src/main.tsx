@@ -2,7 +2,6 @@ import { RootRoute, Route, Router, RouterProvider } from '@tanstack/router';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from '#features/App';
-import './index.css';
 
 const rootRoute = new RootRoute({
 	component: App,
@@ -32,6 +31,8 @@ declare module '@tanstack/router' {
 	}
 }
 
+// root is definitely there promise.
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const rootElement = document.getElementById('root')!;
 if (!rootElement.innerHTML) {
 	const root = createRoot(rootElement);

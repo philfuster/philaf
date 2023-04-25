@@ -6,9 +6,8 @@
     "paths": {
       /* Specify a set of entries that re-map imports to additional lookup locations. */
       "#features/*": ["./features/*"],
-      "#pages/*": ["./pages/*"]
+      "#shared/*": ["./shared/*"]
     },
     "types": ["react", "react-dom", "node"]
-  },
-  "references": [{ "path": "../tsconfig.node.json" }]
+  }
 }

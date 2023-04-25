@@ -9,11 +9,7 @@
 
     /* Modules */
     "module": "NodeNext" /* Specify what module code is generated. */,
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Node",
     "allowImportingTsExtensions": true
-  },
-  "ts-node": {
-    "swc": true,
-    "transpileOnly": true
   }
 }

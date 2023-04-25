@@ -1,18 +1,59 @@
-import { useState } from 'react';
-import './App.css';
+import { Global } from '@emotion/react';
+import styled from '@emotion/styled';
+import { Outlet } from '@tanstack/router';
+
+const globalStyles = (
+	<Global
+		styles={() => ({
+			html: {
+				boxSizing: 'border-box',
+			},
+			'*, *:before, *:after': {
+				boxSizing: 'inherit',
+			},
+			body: {
+				margin: 0,
+				lineHeight: '1.2',
+				overflowX: 'hidden',
+			},
+			a: {
+				textDecoration: 'none',
+			},
+			'a:hover': {
+				textDecoration: 'underline',
+			},
+			img: {
+				maxWidth: '100%',
+				height: 'auto',
+				width: 'auto',
+			},
+		})}
+	/>
+);
+
+const AppContainer = styled('div')(() => ({
+	display: 'flex',
+	alignItems: 'stretch',
+	minHeight: '100vh',
+	width: '100%',
+}));
+
+const ContentContainer = styled('div')(() => ({
+	flex: '1 1 100%',
+	maxWidth: '100%',
+	marginLeft: 0,
+}));
 
 function App() {
-	const [count, setCount] = useState(0);
 	return (
 		<>
-			<h1>Vite + React</h1>
-			<div className="card">
-				<button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-			</div>
-			<p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+			{globalStyles}
+			<AppContainer>
+				<ContentContainer>
+					<h1>Welcome to my blog!</h1>
+					<Outlet />
+				</ContentContainer>
+			</AppContainer>
 		</>
 	);
 }

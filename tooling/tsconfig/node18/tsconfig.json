@@ -9,10 +9,5 @@
 
     /* Modules */
     "module": "commonjs" /* Specify what module code is generated. */
-  },
-  "ts-node": {
-    "require": ["tsconfig-paths/register"],
-    "swc": true,
-    "transpileOnly": true
   }
 }

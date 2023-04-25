@@ -1,7 +1,16 @@
 const { jsGlobs, jsTsGlobs, tsGlobs } = require('./globs');
 
 module.exports = {
-	ignorePatterns: ['node_modules', 'dist', 'coverage', '**/*.d.ts', '!.*.js', '!.*.cjs', '!.*.mjs'],
+	ignorePatterns: [
+		'node_modules',
+		'dist',
+		'coverage',
+		'**/*.d.ts',
+		'!.*.js',
+		'!.*.cjs',
+		'!.*.mjs',
+		'!*.config.ts',
+	],
 
 	// warn on unused eslint disable directives
 	reportUnusedDisableDirectives: true,
@@ -144,59 +153,59 @@ module.exports = {
 			},
 		},
 
-		// {
-		// 	files: [
-		// 		'**/test/**/*.[jt]s?(x)',
-		// 		'**/__tests__/**/*.[jt]s?(x)',
-		// 		'**/?(*.)+(spec|test).[jt]s?(x)',
-		// 	],
-		// 	rules: {
-		// 		// allow tests to create multiple classes
-		// 		'max-classes-per-file': 'off',
+		{
+			files: [
+				'**/test/**/*.[jt]s?(x)',
+				'**/__tests__/**/*.[jt]s?(x)',
+				'**/?(*.)+(spec|test).[jt]s?(x)',
+			],
+			rules: {
+				// allow tests to create multiple classes
+				'max-classes-per-file': 'off',
 
-		// 		// allow side effect constructors
-		// 		'no-new': 'off',
+				// allow side effect constructors
+				'no-new': 'off',
 
-		// 		// allow import with CommonJS export
-		// 		'import/no-import-module-exports': 'off',
+				// allow import with CommonJS export
+				'import/no-import-module-exports': 'off',
 
-		// 		// allow dev dependencies
-		// 		'import/no-extraneous-dependencies': [
-		// 			'error',
-		// 			{ devDependencies: true, optionalDependencies: false, peerDependencies: false },
-		// 		],
+				// allow dev dependencies
+				'import/no-extraneous-dependencies': [
+					'error',
+					{ devDependencies: true, optionalDependencies: false, peerDependencies: false },
+				],
 
-		// 		// disallow use of "it" for test blocks
-		// 		'jest/consistent-test-it': ['error', { fn: 'test', withinDescribe: 'test' }],
+				// disallow use of "it" for test blocks
+				'jest/consistent-test-it': ['error', { fn: 'test', withinDescribe: 'test' }],
 
-		// 		// ensure all tests contain an assertion
-		// 		'jest/expect-expect': 'error',
+				// ensure all tests contain an assertion
+				'jest/expect-expect': 'error',
 
-		// 		// no commented out tests
-		// 		'jest/no-commented-out-tests': 'error',
+				// no commented out tests
+				'jest/no-commented-out-tests': 'error',
 
-		// 		// no duplicate test hooks
-		// 		'jest/no-duplicate-hooks': 'error',
+				// no duplicate test hooks
+				'jest/no-duplicate-hooks': 'error',
 
-		// 		// valid titles
-		// 		'jest/valid-title': 'error',
+				// valid titles
+				'jest/valid-title': 'error',
 
-		// 		// no if conditionals in tests
-		// 		'jest/no-if': 'error',
+				// no if conditionals in tests
+				'jest/no-if': 'error',
 
-		// 		// expect statements in test blocks
-		// 		'jest/no-standalone-expect': 'error',
+				// expect statements in test blocks
+				'jest/no-standalone-expect': 'error',
 
-		// 		// disallow returning from test
-		// 		'jest/no-test-return-statement': 'error',
+				// disallow returning from test
+				'jest/no-test-return-statement': 'error',
 
-		// 		// disallow truthy and falsy in tests
-		// 		'jest/no-restricted-matchers': ['error', { toBeFalsy: null, toBeTruthy: null }],
+				// disallow truthy and falsy in tests
+				'jest/no-restricted-matchers': ['error', { toBeFalsy: null, toBeTruthy: null }],
 
-		// 		// prefer called with
-		// 		'jest/prefer-called-with': 'error',
-		// 	},
-		// },
+				// prefer called with
+				'jest/prefer-called-with': 'error',
+			},
+		},
 
 		{
 			files: ['**/test/**/*.ts?(x)', '**/__tests__/**/*.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
@@ -210,7 +219,7 @@ module.exports = {
 		},
 
 		{
-			files: ['./.*.?(c|m)js', './*.?(c|m)js'],
+			files: ['./.*.?(c|m)js', './*.?(c|m)js', './*./config.ts'],
 			rules: {
 				// allow requires in config files
 				'@typescript-eslint/no-var-requires': 'off',

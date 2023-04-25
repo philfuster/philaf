@@ -30,7 +30,7 @@ module.exports = {
 					{
 						patterns: [
 							{
-								group: ['*'],
+								group: [],
 								message: "Please import as { namedModule } from the module's root index",
 							},
 						],

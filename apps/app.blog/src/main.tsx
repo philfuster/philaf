@@ -1,3 +1,4 @@
+import { PhilafThemeProvider } from '@philaf/app_common.components';
 import { RootRoute, Route, Router, RouterProvider } from '@tanstack/router';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -38,7 +39,9 @@ if (!rootElement.innerHTML) {
 	const root = createRoot(rootElement);
 	root.render(
 		<StrictMode>
-			<RouterProvider router={router} />
+			<PhilafThemeProvider>
+				<RouterProvider router={router} />
+			</PhilafThemeProvider>
 		</StrictMode>,
 	);
 }

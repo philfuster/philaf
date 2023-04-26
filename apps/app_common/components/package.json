@@ -1,0 +1,35 @@
+{
+  "name": "@philaf/app_common.components",
+  "description": "Common components for philaf apps",
+  "private": true,
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck:root": "tsc --project ./tsconfig.json --noEmit && echo \"tsc: no typecheck errors at the root\"",
+    "typecheck:src": "tsc --project ./src/tsconfig.json --noEmit && echo \"tsc: no typecheck errors in src\"",
+    "typecheck:watch": "tsc -w --noEmit"
+  },
+  "devDependencies": {
+    "@emotion/css": "11.10.6",
+    "@emotion/react": "11.10.6",
+    "@mui/icons-material": "5.10.6",
+    "@mui/material": "5.10.8",
+    "@philaf/eslint-config": "workspace:*",
+    "@philaf/tsconfig": "workspace:*",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "@emotion/css": "^11.10.0",
+    "@emotion/react": "^11.10.0",
+    "@mui/icons-material": "^5.10.8",
+    "@mui/material": "^5.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

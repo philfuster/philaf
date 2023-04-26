@@ -1,5 +1,6 @@
 import { Global } from '@emotion/react';
 import styled from '@emotion/styled';
+import Button from '@mui/material/Button';
 import { Outlet } from '@tanstack/router';
 
 const globalStyles = (
@@ -51,6 +52,7 @@ function App() {
 			<AppContainer>
 				<ContentContainer>
 					<h1>Welcome to my blog!</h1>
+					<Button variant="contained">Hello World!</Button>
 					<Outlet />
 				</ContentContainer>
 			</AppContainer>

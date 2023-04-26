@@ -15,6 +15,10 @@
     {
       "name": "⚒️ @philaf/eslint-config",
       "path": "../tooling/eslint-config"
+    },
+    {
+      "name": "🔃 @philaf/app_common.components",
+      "path": "../apps/app_common/components"
     }
   ],
   "settings": {

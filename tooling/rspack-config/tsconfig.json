@@ -1,0 +1,7 @@
+{
+  "extends": "@philaf/tsconfig/node18-esm",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["__tests__/**/*", "./.*.cjs", "./*.js", "./*.mjs", "./.*.js"]
+}

@@ -16,13 +16,27 @@ function Index() {
 	);
 }
 
+function OtherPage() {
+	return (
+		<div>
+			<h1>From other page</h1>
+		</div>
+	);
+}
+
 const indexRoute = new Route({
 	getParentRoute: () => rootRoute,
-	path: '/hello',
+	path: '/',
 	component: Index,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute]);
+const otherRoute = new Route({
+	getParentRoute: () => rootRoute,
+	path: '/hello',
+	component: OtherPage,
+});
+
+const routeTree = rootRoute.addChildren([indexRoute, otherRoute]);
 
 const router = new Router({ routeTree });
 
@@ -34,7 +48,7 @@ declare module '@tanstack/router' {
 
 // root is definitely there promise.
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const rootElement = document.getElementById('root')!;
+const rootElement = document.getElementById('main')!;
 if (!rootElement.innerHTML) {
 	const root = createRoot(rootElement);
 	root.render(

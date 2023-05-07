@@ -17,6 +17,10 @@
       "path": "../tooling/eslint-config"
     },
     {
+      "name": "⚒️ @philaf/rspack-config",
+      "path": "../tooling/rspack-config"
+    },
+    {
       "name": "🔃 @philaf/app_common.components",
       "path": "../apps/app_common/components"
     }

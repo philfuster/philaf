@@ -1,16 +1,7 @@
 const { jsGlobs, jsTsGlobs, tsGlobs } = require('./globs');
 
 module.exports = {
-	ignorePatterns: [
-		'node_modules',
-		'dist',
-		'coverage',
-		'**/*.d.ts',
-		'!.*.js',
-		'!.*.cjs',
-		'!.*.mjs',
-		'!*.config.ts',
-	],
+	ignorePatterns: ['node_modules', 'dist', 'coverage', '**/*.d.ts', '!.*.js', '!.*.cjs', '!.*.mjs'],
 
 	// warn on unused eslint disable directives
 	reportUnusedDisableDirectives: true,

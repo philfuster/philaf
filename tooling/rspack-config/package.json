@@ -1,0 +1,29 @@
+{
+  "name": "@philaf/rspack-config",
+  "description": "Rspack configuration",
+  "private": true,
+  "sideEffects": false,
+  "main": "index.mjs",
+  "exports": {
+    ".": "./index.mjs"
+  },
+  "scripts": {
+    "lint": "TIMING=1 eslint . --ext cjs,mjs,js,jsx,ts,tsx",
+    "lint:fix": "TIMING=1 eslint . --ext cjs,mjs,js,jsx,ts,tsx --fix",
+    "prettier": "prettier . --ignore-unknown --check",
+    "prettier:fix": "prettier . --ignore-unknown --write",
+    "typecheck": "tsc --noEmit && echo \"tsc: no typecheck errors\""
+  },
+  "devDependencies": {
+    "@rspack/cli": "0.1.9",
+    "ts-essentials": "9.3.1",
+    "@philaf/eslint-config": "workspace:*",
+    "@philaf/tsconfig": "workspace:*"
+  },
+  "peerDependencies": {
+    "@rspack/cli": "^0.1.0"
+  },
+  "dependencies": {
+    "@rspack/plugin-html": "0.1.9"
+  }
+}

@@ -18,7 +18,7 @@ function Index() {
 
 const indexRoute = new Route({
 	getParentRoute: () => rootRoute,
-	path: '/hello',
+	path: '/',
 	component: Index,
 });
 
@@ -34,7 +34,7 @@ declare module '@tanstack/router' {
 
 // root is definitely there promise.
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const rootElement = document.getElementById('root')!;
+const rootElement = document.getElementById('main')!;
 if (!rootElement.innerHTML) {
 	const root = createRoot(rootElement);
 	root.render(

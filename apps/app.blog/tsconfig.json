@@ -3,14 +3,12 @@
   "compilerOptions": {
     /* Modules */
     "baseUrl": "./" /* Specify the base directory to resolve non-relative module names. */,
-    "types": ["node"],
-    "composite": true,
-    "module": "ESNext",
-    "allowSyntheticDefaultImports": true
+    "types": ["node"]
   },
   "include": [
     "./.*.cjs", // root commonjs files
-    "./.*.mjs", // root esm files
+    "./*.mjs", // root esm files
+    "./.*.mjs", // root esm config files
     "./*.js", // root javascript files
     "./.*.js" // root javascript config files
   ]

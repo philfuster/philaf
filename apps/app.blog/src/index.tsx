@@ -16,27 +16,13 @@ function Index() {
 	);
 }
 
-function OtherPage() {
-	return (
-		<div>
-			<h1>From other page</h1>
-		</div>
-	);
-}
-
 const indexRoute = new Route({
 	getParentRoute: () => rootRoute,
 	path: '/',
 	component: Index,
 });
 
-const otherRoute = new Route({
-	getParentRoute: () => rootRoute,
-	path: '/hello',
-	component: OtherPage,
-});
-
-const routeTree = rootRoute.addChildren([indexRoute, otherRoute]);
+const routeTree = rootRoute.addChildren([indexRoute]);
 
 const router = new Router({ routeTree });
 

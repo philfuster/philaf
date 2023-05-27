@@ -1,38 +1,41 @@
 import { PhilafThemeProvider } from '@philaf/app_common.components';
-import { RootRoute, Route, Router, RouterProvider } from '@tanstack/router';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { App } from '#features/App';
+import { ErrorPage } from '#shared/ErrorPage';
 
-const rootRoute = new RootRoute({
-	component: App,
-});
+// const rootRoute = new RootRoute({
+// 	component: App,
+// });
 
 function Index() {
-	return (
-		<div>
-			<h3>Welcome!</h3>
-		</div>
-	);
+	return <h3>Welcome!</h3>;
 }
 
-const indexRoute = new Route({
-	getParentRoute: () => rootRoute,
-	path: '/',
-	component: Index,
-});
-
-const routeTree = rootRoute.addChildren([indexRoute]);
-
-const router = new Router({ routeTree });
-
-declare module '@tanstack/router' {
-	interface Register {
-		router: typeof router;
-	}
+function About() {
+	return <h2>About me</h2>;
 }
 
-// root is definitely there promise.
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <App />,
+		errorElement: <App outlet={<ErrorPage />} />,
+		children: [
+			{
+				path: '/',
+				index: true,
+				Component: Index,
+			},
+			{
+				path: '/about',
+				Component: About,
+			},
+		],
+	},
+]);
+
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const rootElement = document.getElementById('main')!;
 if (!rootElement.innerHTML) {

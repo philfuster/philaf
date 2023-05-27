@@ -13,17 +13,17 @@
     "@mui/icons-material": "5.11.16",
     "@mui/material": "5.12.2",
     "@philaf/app_common.components": "workspace:*",
-    "@tanstack/router": "0.0.1-beta.84",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "6.11.2"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "11.10.6",
     "@philaf/eslint-config": "workspace:*",
-    "@philaf/tsconfig": "workspace:*",
     "@philaf/rspack-config": "workspace:*",
+    "@philaf/tsconfig": "workspace:*",
+    "@rspack/cli": "0.1.9",
     "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@rspack/cli": "0.1.9"
+    "@types/react-dom": "^18.0.11"
   }
 }

@@ -1,7 +1,8 @@
 import { Global } from '@emotion/react';
 import styled from '@emotion/styled';
-import Button from '@mui/material/Button';
-import { Outlet } from '@tanstack/router';
+import { Box, Toolbar } from '@mui/material';
+import { Outlet } from 'react-router-dom';
+import { Navigation } from '#features/Navigation';
 
 const globalStyles = (
 	<Global
@@ -45,15 +46,20 @@ const ContentContainer = styled('div')(() => ({
 	marginLeft: 0,
 }));
 
-function App() {
+export interface AppProps {
+	outlet?: JSX.Element;
+}
+
+function App(props: AppProps) {
+	const { outlet } = props;
 	return (
 		<>
 			{globalStyles}
 			<AppContainer>
 				<ContentContainer>
-					<h1>Welcome to my blog!</h1>
-					<Button variant="contained">Hello World!</Button>
-					<Outlet />
+					<Navigation />
+					<Toolbar />
+					<Box component="main">{outlet || <Outlet />}</Box>
 				</ContentContainer>
 			</AppContainer>
 		</>

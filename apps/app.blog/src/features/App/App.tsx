@@ -1,6 +1,6 @@
 import { Global } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Box, Toolbar } from '@mui/material';
+import { Container, Toolbar } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import { Navigation } from '#features/Navigation';
 
@@ -43,7 +43,6 @@ const AppContainer = styled('div')(() => ({
 const ContentContainer = styled('div')(() => ({
 	flex: '1 1 100%',
 	maxWidth: '100%',
-	marginLeft: 0,
 }));
 
 export interface AppProps {
@@ -59,7 +58,9 @@ function App(props: AppProps) {
 				<ContentContainer>
 					<Navigation />
 					<Toolbar />
-					<Box component="main">{outlet || <Outlet />}</Box>
+					<Container component="main" sx={{ pt: 5, maxWidth: 1600 }}>
+						{outlet || <Outlet />}
+					</Container>
 				</ContentContainer>
 			</AppContainer>
 		</>

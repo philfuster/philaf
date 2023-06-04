@@ -20,7 +20,6 @@ declare module '@mui/material/styles/components' {
 		bottomNavigationHeight: number;
 		tabsHeightIcon: number;
 		tabsHeightText: number;
-		navigationRailWidth: number;
 	}
 }
 
@@ -45,7 +44,6 @@ const philaf = createTheme({
 		bottomNavigationHeight: 56,
 		tabsHeightIcon: 72,
 		tabsHeightText: 48,
-		navigationRailWidth: 72,
 	},
 	breakpoints: {
 		values: {
@@ -55,6 +53,9 @@ const philaf = createTheme({
 			lg: 1280,
 			xl: 1920,
 		},
+	},
+	typography: {
+		fontSize: 17,
 	},
 });
 
@@ -103,10 +104,6 @@ interface PhilafThemeProviderProps {
 const PhilafThemeProvider = (props: PhilafThemeProviderProps) => {
 	const { children } = props;
 	return (
-		// The EmotionCacheProvider is only used to silence console warnings from emotion that say
-		// "The pseudo class ':first-child' is potentially unsafe when doing server-side rendering".
-		// We never use server-side rendering, so silencing the warning should be ok.
-		// https://github.com/emotion-js/emotion/issues/1105#issuecomment-557726922
 		<ThemeProvider theme={philaf}>
 			<CssBaseline />
 			{globalStyles}

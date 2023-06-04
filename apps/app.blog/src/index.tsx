@@ -2,20 +2,10 @@ import { PhilafThemeProvider } from '@philaf/app_common.components';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { AboutPage } from '#features/About';
 import { App } from '#features/App';
+import { RootIndex } from '#features/RootIndex';
 import { ErrorPage } from '#shared/ErrorPage';
-
-// const rootRoute = new RootRoute({
-// 	component: App,
-// });
-
-function Index() {
-	return <h3>Welcome!</h3>;
-}
-
-function About() {
-	return <h2>About me</h2>;
-}
 
 const router = createBrowserRouter([
 	{
@@ -26,11 +16,11 @@ const router = createBrowserRouter([
 			{
 				path: '/',
 				index: true,
-				Component: Index,
+				Component: RootIndex,
 			},
 			{
 				path: '/about',
-				Component: About,
+				Component: AboutPage,
 			},
 		],
 	},

@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
+import Link from '@mui/material/Link';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -12,7 +13,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
 const drawerWidth = 240;
 type NavigationDetails = { to: string; text: string } & { component?: () => JSX.Element };
@@ -43,7 +44,7 @@ export default function DrawerAppBar() {
 				{navDetails.map(({ text, to }) => (
 					<ListItem key={text} disablePadding>
 						<ListItemButton sx={{ textAlign: 'center' }}>
-							<Link to={to}>
+							<Link component={RouterLink} to={to}>
 								<ListItemText>{text}</ListItemText>
 							</Link>
 						</ListItemButton>
@@ -67,16 +68,23 @@ export default function DrawerAppBar() {
 						<MenuIcon />
 					</IconButton>
 					<Typography
-						variant="h6"
-						component="div"
-						sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
+						component={RouterLink}
+						to="/"
+						sx={{
+							variant: 'h3',
+							color: '#fff',
+							flexGrow: 1,
+							display: { xs: 'block', sm: 'block' },
+						}}
 					>
 						Philaf
 					</Typography>
 					<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 						{navDetails.map(({ to, text }) => (
 							<Button key={text} sx={{ color: '#fff' }}>
-								<Link to={to}>{text}</Link>
+								<Link sx={{ color: '#fff' }} component={RouterLink} to={to}>
+									{text}
+								</Link>
 							</Button>
 						))}
 					</Box>
